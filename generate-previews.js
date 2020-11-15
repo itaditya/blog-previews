@@ -2,6 +2,10 @@ const fs = require('fs');
 const nodeHtmlToImage = require('node-html-to-image');
 const fetch = require('node-fetch');
 
+function logger(message) {
+  console.log(`[STATUS]: ${message}`)
+}
+
 function getShortDate(isoString) {
   const dateInstance = new Date(isoString);
   const month = dateInstance.toLocaleString('default', { month: 'short' });
@@ -12,6 +16,7 @@ function getShortDate(isoString) {
 }
 
 async function getContent() {
+  logger('Fetching blog data');
   const res = await fetch('http://localhost:3000/_next/data/development/blog.json');
   const data = await res.json();
 
@@ -31,8 +36,11 @@ async function getContent() {
 }
 
 async function init() {
+  logger('Reading html template');
   const html = fs.readFileSync('./template.html').toString('utf8');
   const content = await getContent();
+
+  logger('Generating images');
   await nodeHtmlToImage({
     html,
     quality: 30,
