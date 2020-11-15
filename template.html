@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body
+    style="
+      display: flex;
+      align-items: center;
+      width: 1012px;
+      height: 506px;
+      padding: 0 56px;
+      margin: 0;
+      background-color: #1a202c;
+    "
+  >
+    <div>
+      <h1
+        style="
+          color: #f7fafc;
+          font-weight: bold;
+          font-size: 48px;
+          font-family: 'Lora';
+          margin: 0 0 40px;
+        "
+      >
+        {{title}}
+      </h1>
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          color: #e2e8f0;
+          font-family: 'Roboto';
+          font-weight: 500;
+          font-size: 30px;
+        "
+      >
+        <span>{{readingTime}} read</span>
+        <span>Published on {{publishDate}}</span>
+      </div>
+    </div>
+    <div style="margin-left: 83px">
+      <img
+        src="https://unavatar.now.sh/twitter/dev__adi"
+        style="display: block; width: 250px; height: 250px"
+      />
+    </div>
+  </body>
+</html>
