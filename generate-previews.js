@@ -1,9 +1,9 @@
-const fs = require('fs');
+const fs = require('fs').promises;
 const nodeHtmlToImage = require('node-html-to-image');
 const fetch = require('node-fetch');
 
 function logger(message) {
-  console.log(`[STATUS]: ${message}`)
+  console.log(`[STATUS]: ${message}`);
 }
 
 function getShortDate(isoString) {
@@ -37,7 +37,8 @@ async function getContent() {
 
 async function init() {
   logger('Reading html template');
-  const html = fs.readFileSync('./template.html').toString('utf8');
+  const templateBuffer = await fs.readFile('./template.html');
+  const html = templateBuffer.toString('utf8');
   const content = await getContent();
 
   logger('Generating images');
